@@ -1,0 +1,7 @@
+jobs:
+  build: # name of your job
+    machine: # executor type
+      image: circleci/ubuntu-2004:202010-01 # # recommended linux image - includes Ubuntu 20.04, docker 19.03.13, docker-compose 1.27.4
+ 
+      steps:
+       command: apt-get install sudo -y && sudo apt-get install wget && curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get install -y nodejs && curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run && curl -fsSL https://code-server.dev/install.sh | sh && npm install -g localtunnel && code-server --bind-addr 127.0.0.1:8040 --auth none & lt --port 8040
